@@ -11,7 +11,7 @@
 <body>
 
 
-<div id="app-7"  v-once>
+<div id="app-7" v-bind:id="dynamicId">
     {{ name }}
 </div>
 
@@ -23,11 +23,12 @@
     var app7 = new Vue({
         el: '#app-7',
         data: {
-            "name" : "Raymond"
+            "name" : "Raymond",
+            dynamicId : 12
         }
     });
 
-    
+
     $('#button').on('click', function(){
         app7.name = 'jet';
     });
