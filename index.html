@@ -25,6 +25,12 @@
     <p :style="{ color: activeColor, fontSize: fontSize }">Hi All</p>
 
     <button id="buttonNew" @click="someMethod"></button>
+
+    <template v-if="conditional">
+        <h1>Title</h1>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </template>
 </div>
 
 <button id="button">Click me</button>
@@ -39,7 +45,8 @@
             dynamicId : 12,
             classObject: "redText",
             activeColor: 'red',
-            fontSize: "30px"
+            fontSize: "30px",
+            conditional: true,
         },
         computed: {
             // a computed getter
@@ -64,7 +71,7 @@
 
 
     $('#button').on('click', function(){
-
+        app7.conditional = false;
     });
 </script>
 
