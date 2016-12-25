@@ -10,20 +10,25 @@
 </head>
 <body>
 
-<div id="app-3">
-    <div id="app-6">
-        <p>{{ message }}</p>
-        <input v-model="message">
-    </div>
+<div id="app-6">
+    <ol>
 
-    <button id="button">Click me</button>
+        <todo-item></todo-item>
+    </ol>
 </div>
 
+<button id="button">Click me</button>
+
+
 <script>
+    Vue.component('todo-item', {
+        template: '<li>This is a todo</li>'
+    })
+
     var app6 = new Vue({
         el: '#app-6',
         data: {
-            message: 'Hello Vue!'
+
         }
     })
 
