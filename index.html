@@ -11,7 +11,7 @@
 <body>
 
 
-<div id="app-7">
+<div id="app-7"  v-once>
     {{ name }}
 </div>
 
@@ -24,17 +24,10 @@
         el: '#app-7',
         data: {
             "name" : "Raymond"
-        },
-        created: function () {
-            console.log(this.name);
         }
     });
 
-    app7.$watch('name', function (newVal, oldVal) {
-        // this callback will be called when `vm.a` changes
-        alert(newVal + " " + oldVal);
-    });
-
+    
     $('#button').on('click', function(){
         app7.name = 'jet';
     });
