@@ -22,6 +22,8 @@
 
     <p>Computed reversed name: "{{ reversedName }}"</p>
 
+    <p :style="{ color: activeColor, fontSize: fontSize }">Hi All</p>
+
     <button id="buttonNew" @click="someMethod"></button>
 </div>
 
@@ -35,7 +37,9 @@
         data: {
             name : "raymond",
             dynamicId : 12,
-            classObject: "redText"
+            classObject: "redText",
+            activeColor: 'red',
+            fontSize: "30px"
         },
         computed: {
             // a computed getter
