@@ -20,6 +20,8 @@
 <div id="app-7" :id="dynamicId" :class="classObject">
     {{ name | capitalize }}
 
+    <p>Computed reversed name: "{{ reversedName }}"</p>
+
     <button id="buttonNew" @click="someMethod"></button>
 </div>
 
@@ -31,9 +33,16 @@
     var app7 = new Vue({
         el: '#app-7',
         data: {
-            "name" : "raymond",
+            name : "raymond",
             dynamicId : 12,
             classObject: "redText"
+        },
+        computed: {
+            // a computed getter
+            reversedName: function () {
+                // `this` points to the vm instance
+                return this.name.split('').reverse().join('')
+            }
         },
         filters: {
             capitalize: function (value) {
