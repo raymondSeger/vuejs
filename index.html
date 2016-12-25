@@ -10,9 +10,17 @@
 </head>
 <body>
 
+<style>
+    .redText {
+        color: red;
+    }
+</style>
 
-<div id="app-7" v-bind:id="dynamicId">
+
+<div id="app-7" :id="dynamicId" :class="classObject">
     {{ name | capitalize }}
+
+    <button id="buttonNew" @click="someMethod"></button>
 </div>
 
 <button id="button">Click me</button>
@@ -24,7 +32,8 @@
         el: '#app-7',
         data: {
             "name" : "raymond",
-            dynamicId : 12
+            dynamicId : 12,
+            classObject: "redText"
         },
         filters: {
             capitalize: function (value) {
@@ -32,12 +41,17 @@
                 value = value.toString();
                 return value.charAt(0).toUpperCase() + value.slice(1);
             }
+        },
+        methods: {
+            someMethod: function () {
+                alert('hi all');
+            }
         }
     });
 
 
     $('#button').on('click', function(){
-        app7.name = 'jet';
+
     });
 </script>
 
